@@ -18,18 +18,14 @@ const OnBoardingScreen = () => {
   const [ok, setOk] = useState(true);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [list, setList] = useState<MyData[]>([
-    {
-      id: 1,
-      name: "---",
-    },
-  ]);
+  const [list, setList] = useState<MyData[]>([]);
   const currentList =list[selectedIndex];
+
   const fetchServers = async () => {
     try {
       const response = await axios.get<{ data: MyData[] }>(
-        "http://localhost:8082/onboard-slots",
-        // "https://api.evhomes.tech/onboard-last-6",
+        // "http://localhost:8082/onboard-slots",
+        "https://api.evhomes.tech/onboard-last-6",
         {
           headers: {
             "x-platform": "web",
@@ -47,36 +43,10 @@ const OnBoardingScreen = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchServers();
-  // }, []);
-
   useEffect(() => {
-    // const arr = [
-    //   { id: 1, name: "MAHEK TULVE", remark: "BOARDING" },
-    //   { id: 2, name: "ARUN KUMAR", remark: "ON PROGRESS" },
-    //   { id: 3, name: "SNEHA SHAH", remark: "COMPLETED" },
-    //   { id: 4, name: "RAHUL VERMA", remark: "PENDING" },
-    //   { id: 5, name: "PRIYA SINGH", remark: "CANCELLED" },
-    //   { id: 6, name: "VIKAS PATIL", remark: "BOARDING" },
-    // ];
 
     const inter = setInterval(() => {
       fetchServers();
-      // setList((prev) => {
-      //   const current = prev[selectedIndex];
-
-      //   // find its index in arr
-      //   const indexInArr = arr.findIndex((item) => item?.id === current?.id);
-
-      //   // next index (looping)
-      //   const nextIndex = (indexInArr + 1) % arr.length;
-
-      //   // copy and update only selectedIndex
-      //   const updated = [...prev];
-      //   updated[selectedIndex] = arr[nextIndex];
-      //   return updated;
-      // });
     }, 5000);
 
     return () => clearInterval(inter);
