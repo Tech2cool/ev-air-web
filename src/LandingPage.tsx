@@ -63,21 +63,24 @@ const OnBoardingScreen = () => {
       <div className={Styles.collum}>
         <div className={`${Styles.row} ${ok ? Styles.animateBox : ""}`}>
           <div className={Styles.numb}>EV009</div>
-          <div className={Styles.possision}>BEFORE THE POSSESSION</div>
+          <div className={Styles.possision}>BEFORE TIME POSSESSION</div>
         </div>
 
         <div className={`${Styles.navi} ${ok ? Styles.animateBox : ""}`}>
           NAVI MUMBAI
         </div>
         <div className={`${Styles.navi} ${ok ? Styles.animateBox : ""}`}>
-          TIME TO INVEST NOW
+          TIME TO INVEST <span className={Styles.now} >NOW</span>
         </div>
 
         <div className={`${Styles.Time} ${ok ? Styles.animateBox : ""}`}>
           <div className={Styles.Timelable}>NAME :</div>
           <div className={Styles.Timeinput}>
-            {list[selectedIndex]?.name ?? "--"}
+            <span className={Styles.nameShine}>
+              {list[selectedIndex]?.name ?? "--"}
+            </span>
           </div>
+
         </div>
 
         {/* Remark field */}

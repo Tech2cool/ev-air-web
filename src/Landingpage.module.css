@@ -73,6 +73,8 @@
   padding: 20px 100px;
   display: flex;
   flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
   gap: 10px;
   position: relative;
   z-index: 2;
@@ -189,16 +191,6 @@
   overflow: hidden;
 }
 
-.Time::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
-  animation: shine 3s infinite;
-}
 
 .filled, .remark {
   display: flex;
@@ -245,7 +237,36 @@
   border-radius: 10px;
   border: 2px solid #e9ecef;
   flex: 1;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+.nameShine {
+  position: relative;
+  display: inline-block;
+  color: #172233;
+}
+
+.nameShine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.514) 50%,
+    transparent 100%
+  );
+  animation: shineMove 2.5s infinite;
+}
+
+/* Animation */
+@keyframes shineMove {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
 }
 .Timeinput{
   font-size: 4vw;
@@ -270,14 +291,8 @@
   }
 }
 
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
+
+
 
 .animateBox {
   animation: fadeSlideUp 1s ease-out forwards;
@@ -300,4 +315,31 @@
 
 .animateBox {
     animation: fadeSlideUp 1s ease-out forwards;
+}
+.now {
+  font-style: italic;
+  font-weight: 900;
+padding-left: 20px;
+  /* FORCE TEXT COLOR VISIBLE */
+  -webkit-text-fill-color: currentColor !important;
+  background: none !important;
+
+  color: #1a3d7c; /* starting dark blue */
+  animation: colorZoom 1.6s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes colorZoom {
+  0% {
+    color: rgb(196, 134, 0);     /* dark blue */
+    transform: scale(1);
+  }
+  50% {
+    color: #e45f37;     /* light blue */
+    transform: scale(1.5);
+  }
+  100% {
+    color: rgb(196, 134, 0);
+    transform: scale(1);
+  }
 }
