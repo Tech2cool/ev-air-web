@@ -1,0 +1,3 @@
+interface Server{
+    id:string;
+}
