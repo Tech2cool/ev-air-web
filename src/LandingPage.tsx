@@ -87,10 +87,20 @@ const OnBoardingScreen = () => {
         </div>
 
         <div className={`${Styles.navi} ${ok ? Styles.animateBox : ""}`}>
-          NAVI MUMBAI
+          <span className={Styles.mumbai}>NAVI MUMBAI</span>
+          {/* TIME TO INVEST{" "} */}
+          {/* <span className={Styles.now}>NOW</span> */}
         </div>
-        <div className={`${Styles.navi} ${ok ? Styles.animateBox : ""}`}>
+        {/* <br /> */}
+        {/* <div className={`${Styles.navi} ${ok ? Styles.animateBox : ""}`}>
           TIME TO INVEST <span className={Styles.now}>NOW</span>
+        </div> */}
+
+        <div className={`${Styles.Time} ${ok ? Styles.animateBox : ""}`}>
+          <div className={Styles.Timelable}>TIME TO INVEST :</div>
+          <div className={Styles.Timeinput2}>
+            <span className={Styles.now}>NOW</span>{" "}
+          </div>
         </div>
 
         <div className={`${Styles.Time} ${ok ? Styles.animateBox : ""}`}>
