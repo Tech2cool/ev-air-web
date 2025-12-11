@@ -19,13 +19,13 @@ const OnBoardingScreen = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState<MyData[]>([]);
-  const currentList =list[selectedIndex];
+  const currentList = list[selectedIndex];
 
   const fetchServers = async () => {
     try {
       const response = await axios.get<{ data: MyData[] }>(
         // "http://localhost:8082/onboard-slots",
-        "https://api.evhomes.tech/onboard-last-6",
+        "https://api.evhomes.tech/onboard-slots",
         {
           headers: {
             "x-platform": "web",
@@ -44,7 +44,6 @@ const OnBoardingScreen = () => {
   };
 
   useEffect(() => {
-
     const inter = setInterval(() => {
       fetchServers();
     }, 5000);
